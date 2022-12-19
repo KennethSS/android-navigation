@@ -1,0 +1,18 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/mainNavigation"
+  app:startDestination="@id/home">
+
+  <fragment
+    android:id="@+id/home"
+    android:name="com.kennethss.android.navigation.ui.home.HomeFragment"
+    android:label="@string/label_home"
+    tools:layout="@layout/fragment_home" />
+
+  <fragment
+    android:id="@+id/my"
+    android:name="com.kennethss.android.navigation.ui.deeplink.MyFragment"
+    android:label="@string/label_my"
+    tools:layout="@layout/fragment_my" />
+</navigation>

@@ -1,0 +1,11 @@
+<resources>
+  <string name="app_name">Jetpack Navigation</string>
+  <string name="label_main">Main</string>
+
+  <string name="label_home">Home</string>
+  <string name="label_my">My</string>
+  <string name="label_setting">Setting</string>
+
+  <string name="menu_home">Home</string>
+  <string name="menu_my">My</string>
+</resources>
