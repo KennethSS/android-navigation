@@ -1,4 +1,4 @@
-package com.kennethss.android.compose.ui.sign.password
+package com.kennethss.android.compose.ui.sign.ui.password
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,8 +18,6 @@ fun PasswordScreen(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        val coroutine = rememberCoroutineScope()
-
         Text(
             text = "Success password find",
             modifier = Modifier

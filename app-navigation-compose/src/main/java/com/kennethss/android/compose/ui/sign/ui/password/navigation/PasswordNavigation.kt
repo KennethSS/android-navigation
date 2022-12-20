@@ -1,12 +1,10 @@
-package com.kennethss.android.compose.ui.sign.password.navigation
+package com.kennethss.android.compose.ui.sign.ui.password.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.kennethss.android.compose.ui.home.navigation.homeNavigationRoute
-import com.kennethss.android.compose.ui.sign.password.PasswordScreen
-import com.kennethss.android.compose.ui.sign.username.UserNameScreen
+import com.kennethss.android.compose.ui.sign.ui.password.PasswordScreen
 
 const val passwordNameNavigationRoute = "password_route"
 

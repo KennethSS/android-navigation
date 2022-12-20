@@ -1,4 +1,4 @@
-package com.kennethss.android.navigation.ui.deeplink
+package com.kennethss.android.navigation.ui.my
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,15 +22,5 @@ class MyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    companion object {
-        fun newInstance(): MyFragment {
-            val args = Bundle()
-
-            val fragment = MyFragment()
-            fragment.arguments = args
-            return fragment
-        }
     }
 }

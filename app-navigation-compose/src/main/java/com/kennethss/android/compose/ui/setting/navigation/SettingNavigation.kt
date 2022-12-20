@@ -6,29 +6,45 @@ import androidx.navigation.NavOptions
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
+import com.kennethss.android.compose.navigation.AppDestination
 import com.kennethss.android.compose.ui.setting.SettingScreen
-
-const val settingNavigationRoute = "setting_route"
 
 fun NavController.navigateSetting(
     id: Int,
     navOptions: NavOptions? = null
 ) {
-    this.navigate("$settingNavigationRoute/$id", navOptions)
+    navigate("${Setting.route}/$id", navOptions)
 }
 
 fun NavGraphBuilder.settingScreen(
     navigator: SettingNavigator
 ) {
     composable(
-        route = "$settingNavigationRoute/{id}",
-        arguments = listOf(navArgument(KEY_ID) { type = NavType.IntType })
+        route = Setting.routeArgs,
+        arguments = Setting.arguments,
+        deepLinks = Setting.deepLinks
     ) { backStackEntry ->
+        val id = backStackEntry.arguments?.getInt(KEY_ID) ?: 0
         SettingScreen(
-            id = backStackEntry.arguments?.getInt(KEY_ID) ?: 0,
+            id = id,
             navigator = navigator
         )
     }
+}
+
+object Setting : AppDestination {
+    override val route: String = "setting"
+    val routeArgs = "$route?id={id}"
+    val arguments = listOf(
+        navArgument(KEY_ID) {
+            type = NavType.IntType
+            defaultValue = 0
+        }
+    )
+    val deepLinks = listOf(navDeepLink {
+        uriPattern = "navigation_compose://$route/{id}"
+    })
 }
 
 const val KEY_ID = "id"

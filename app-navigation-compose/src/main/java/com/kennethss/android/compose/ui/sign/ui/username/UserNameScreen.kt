@@ -1,4 +1,4 @@
-package com.kennethss.android.compose.ui.sign.username
+package com.kennethss.android.compose.ui.sign.ui.username
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun UserNameScreen(
+    username: String,
     navigateToPassword: () -> Unit
 ) {
     Column(
@@ -21,7 +22,7 @@ fun UserNameScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "UserName",
+            text = "UserName : $username",
         )
 
         Button(

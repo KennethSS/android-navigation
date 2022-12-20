@@ -12,7 +12,7 @@
 
   <fragment
     android:id="@+id/my"
-    android:name="com.kennethss.android.navigation.ui.deeplink.MyFragment"
+    android:name="com.kennethss.android.navigation.ui.my.MyFragment"
     android:label="@string/label_my"
     tools:layout="@layout/fragment_my" />
 </navigation>
