@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "android-navigation-sample"
+rootProject.name = "android-navigation"
 include ':app-navigation'
 include ':app-navigation-compose'
