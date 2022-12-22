@@ -1,13 +1,16 @@
 package com.kennethss.android.compose.ui.setting.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.NavType
-import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
+import com.google.accompanist.navigation.animation.composable
 import com.kennethss.android.compose.navigation.AppDestination
+import com.kennethss.android.compose.navigation.slideInFromRight
+import com.kennethss.android.compose.navigation.slideOutToRight
 import com.kennethss.android.compose.ui.setting.SettingScreen
 
 fun NavController.navigateSetting(
@@ -17,13 +20,16 @@ fun NavController.navigateSetting(
     navigate("${Setting.route}/$id", navOptions)
 }
 
+@OptIn(ExperimentalAnimationApi::class)
 fun NavGraphBuilder.settingScreen(
     navigator: SettingNavigator
 ) {
     composable(
         route = Setting.routeArgs,
         arguments = Setting.arguments,
-        deepLinks = Setting.deepLinks
+        deepLinks = Setting.deepLinks,
+        enterTransition = { slideInFromRight() },
+        exitTransition = { slideOutToRight() }
     ) { backStackEntry ->
         val id = backStackEntry.arguments?.getInt(KEY_ID) ?: 0
         SettingScreen(
