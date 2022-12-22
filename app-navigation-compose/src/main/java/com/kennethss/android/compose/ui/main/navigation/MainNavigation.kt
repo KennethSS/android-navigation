@@ -1,11 +1,10 @@
 package com.kennethss.android.compose.ui.main.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavOptions
-import androidx.navigation.compose.composable
+import com.google.accompanist.navigation.animation.composable
 import com.kennethss.android.compose.ui.main.MainRoute
-import com.kennethss.android.compose.ui.my.navigation.myNavigationRoute
 
 const val mainNavigationRoute = "main"
 
@@ -16,6 +15,7 @@ fun NavController.navigateMain() {
 }
 
 
+@OptIn(ExperimentalAnimationApi::class)
 fun NavGraphBuilder.mainScreen(
     mainNavigator: MainNavigator
 ) {

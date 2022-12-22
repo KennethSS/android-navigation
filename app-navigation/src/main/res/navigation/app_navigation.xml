@@ -18,6 +18,10 @@
       app:enterAnim="@anim/slide_from_right"
       app:exitAnim="@anim/stay"
       app:popEnterAnim="@anim/stay"
-      app:popExitAnim="@anim/slide_to_right" />
+      app:popExitAnim="@anim/slide_to_right" >
+      <argument
+        android:name="id"
+        android:defaultValue="0" />
+    </action>
   </fragment>
 </navigation>

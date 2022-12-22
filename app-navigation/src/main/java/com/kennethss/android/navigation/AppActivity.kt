@@ -22,7 +22,7 @@ class AppActivity : AppCompatActivity() {
                 when (navigator) {
                     is AppNavigator.Setting -> {
                         findNavController(R.id.fragmentContainer).navigate(
-                            MainFragmentDirections.actionHomeFragmentToSettingFragment()
+                            MainFragmentDirections.actionHomeFragmentToSettingFragment(id = 1)
                         )
                     }
                 }

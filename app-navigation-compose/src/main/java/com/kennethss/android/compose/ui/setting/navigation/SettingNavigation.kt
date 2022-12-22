@@ -41,7 +41,7 @@ fun NavGraphBuilder.settingScreen(
 
 object Setting : AppDestination {
     override val route: String = "setting"
-    val routeArgs = "$route?id={id}"
+    val routeArgs = "$route/{id}"
     val arguments = listOf(
         navArgument(KEY_ID) {
             type = NavType.IntType
