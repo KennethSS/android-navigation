@@ -53,12 +53,14 @@ class HomeFragment : Fragment() {
 
     private fun showNotification(pending: PendingIntent) {
         val nm = requireActivity().getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        val channelId = "channel_id"
+        val channelName = "channel_name"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel =
-                NotificationChannel("channel", "channel", NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
             nm.createNotificationChannel(channel)
         }
-        val notify = NotificationCompat.Builder(requireContext(), "channel")
+        val notify = NotificationCompat.Builder(requireContext(), channelId)
             .setContentTitle("DeepLink")
             .setContentText("Click!")
             .setSmallIcon(R.mipmap.ic_launcher)
