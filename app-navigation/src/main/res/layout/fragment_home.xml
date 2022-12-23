@@ -30,5 +30,16 @@
       app:layout_constraintStart_toStartOf="@id/homeTv"
       app:layout_constraintTop_toBottomOf="@id/homeTv"
       />
+
+    <Button
+      android:id="@+id/deepLink"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:text="DeepLink"
+      app:layout_constraintEnd_toEndOf="@id/btnSetting"
+      app:layout_constraintStart_toStartOf="@id/btnSetting"
+      app:layout_constraintTop_toBottomOf="@id/btnSetting"
+      />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

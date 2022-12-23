@@ -1,13 +1,18 @@
 package com.kennethss.android.navigation.ui.home
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context.NOTIFICATION_SERVICE
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.navGraphViewModels
-import com.kennethss.android.navigation.AppNavigator
+import androidx.navigation.NavDeepLinkBuilder
 import com.kennethss.android.navigation.AppViewModel
 import com.kennethss.android.navigation.R
 import com.kennethss.android.navigation.databinding.FragmentHomeBinding
@@ -31,6 +36,36 @@ class HomeFragment : Fragment() {
         binding.btnSetting.setOnClickListener {
             appViewModel.navigateToSetting(id = 0)
         }
+
+        binding.deepLink.setOnClickListener {
+            val args = Bundle().apply {
+                putInt("id", 4)
+            }
+
+            val pending = NavDeepLinkBuilder(it.context)
+                .setGraph(R.navigation.app_navigation)
+                .setDestination(R.id.setting_navigation)
+                .setArguments(args)
+                .createPendingIntent()
+            showNotification(pending)
+        }
+    }
+
+    private fun showNotification(pending: PendingIntent) {
+        val nm = requireActivity().getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel =
+                NotificationChannel("channel", "channel", NotificationManager.IMPORTANCE_DEFAULT)
+            nm.createNotificationChannel(channel)
+        }
+        val notify = NotificationCompat.Builder(requireContext(), "channel")
+            .setContentTitle("DeepLink")
+            .setContentText("Click!")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentIntent(pending)
+            .build()
+
+        nm.notify(1, notify)
     }
 
     companion object {
