@@ -15,6 +15,6 @@
       android:name="id"
       android:defaultValue="0" />
 
-    <deepLink app:uri="navigation/{id}" />
+    <deepLink app:uri="navigation/setting/{id}" />
   </fragment>
 </navigation>

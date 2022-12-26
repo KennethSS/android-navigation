@@ -5,7 +5,7 @@
 ### Android
 
 ``` shell
-adb shell am start -a android.intent.action.VIEW -d "https://www.navigation.com/setting_route?id=1" com.navigation.android.compose
+adb shell am start -a android.intent.action.VIEW -d "https://navigation/setting/4"
 ```
 
 

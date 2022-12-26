@@ -25,6 +25,16 @@ class AppActivity : AppCompatActivity() {
                             MainFragmentDirections.actionHomeFragmentToSettingFragment(id = 1)
                         )
                     }
+                    is AppNavigator.SettingWithSharedElementTransition -> {
+                        findNavController(R.id.fragmentContainer).navigate(
+                            R.id.actionHomeFragmentToSettingFragment,
+                            Bundle().apply {
+                                putInt("id", navigator.id)
+                            },
+                            null,
+                            navigator.extras
+                        )
+                    }
                 }
             }
         }

@@ -13,6 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDeepLinkBuilder
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.kennethss.android.navigation.AppViewModel
 import com.kennethss.android.navigation.R
 import com.kennethss.android.navigation.databinding.FragmentHomeBinding
@@ -35,6 +36,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSetting.setOnClickListener {
             appViewModel.navigateToSetting(id = 0)
+        }
+
+        binding.btnSettingWithTransition.setOnClickListener {
+            appViewModel.navigateToSettingWithSharedElementTransition(
+                id = 1,
+                extras = FragmentNavigatorExtras(binding.btnSettingWithTransition to "setting_transition")
+            )
         }
 
         binding.deepLink.setOnClickListener {
