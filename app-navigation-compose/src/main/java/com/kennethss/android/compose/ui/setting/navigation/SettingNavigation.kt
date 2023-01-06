@@ -29,7 +29,7 @@ fun NavGraphBuilder.settingScreen(
         arguments = Setting.arguments,
         deepLinks = Setting.deepLinks,
         enterTransition = { slideInFromRight() },
-        exitTransition = { slideOutToRight() }
+        popExitTransition = { slideOutToRight() }
     ) { backStackEntry ->
         val id = backStackEntry.arguments?.getInt(KEY_ID) ?: 0
         SettingScreen(
